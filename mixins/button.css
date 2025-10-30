@@ -47,7 +47,3 @@
 @mixin --doomed-button-active() {
 	background-color: #181818;
 }
-
-@mixin --doomed-button-submit() {
-	color: DeepPink;
-}
