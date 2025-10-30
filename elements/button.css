@@ -1,0 +1,12 @@
+:host {
+	@apply --doomed-button-reset;
+	@apply --doomed-button-base;
+}
+
+:host(:hover) {
+	@apply --doomed-button-hover;
+}
+
+:host(:active) {
+	@apply --doomed-button-active;
+}

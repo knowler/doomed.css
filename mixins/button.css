@@ -1,0 +1,53 @@
+@mixin --doomed-button-reset() {
+	&:where(button, input[type="submit"]) {
+		display: initial;
+		background: initial;
+		border: initial;
+		font-size: 1rem;
+		text-align: initial;
+		padding: 0;
+	}
+}
+
+@mixin --doomed-button-base() {
+	display: inline-block;
+	padding: 8px;
+
+	cursor: pointer;
+
+	font-family: var(--doomed-font-sans);
+	font-weight: 500;
+	font-feature-settings: "ss06";
+	text-box: cap alphabetic;
+
+	border: 2px solid light-dark(
+		var(--TODO, CanvasText),
+		#ccc
+	);
+	border-radius: 6px;
+
+	color: light-dark(
+		var(--TODO, CanvasText),
+		#fff
+	);
+	background-color: light-dark(
+		var(--TODO, Canvas),
+		#212121
+	);
+
+	transition-duration: 200ms;
+	transition-timing-function: ease-in-out;
+	transition-property: background-color;
+}
+
+@mixin --doomed-button-hover() {
+	background-color: #333;
+}
+
+@mixin --doomed-button-active() {
+	background-color: #181818;
+}
+
+@mixin --doomed-button-submit() {
+	color: DeepPink;
+}

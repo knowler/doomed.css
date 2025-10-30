@@ -1,0 +1,5 @@
+@property --doomed-font-sans {
+	syntax: "*";
+	initial-value: system-ui;
+	inherits: false;
+}

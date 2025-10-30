@@ -1,0 +1,16 @@
+{
+	local_certs
+}
+
+doomed.example {
+	tls internal
+
+	header / {
+		+Link </elements/button.js?define>;rel=modulepreload
+		+Link </elements/button.css>;rel=preload;as=script;crossorigin
+		+Link </mixins/fonts.css>;rel=preload;as=style
+		+Link </mixins/button.css>;rel=preload;as=style
+	}
+
+	file_server
+}
