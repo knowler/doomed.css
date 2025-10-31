@@ -4,12 +4,12 @@
 <meta name=color-scheme content=dark>
 <meta name=viewport content=width=device-width,initial-scale=1>
 <title>u r doomed</title>
-<link rel=stylesheet href=/main.css>
-<script type=module src=https://esm.sh/jsr/@knowler/log-form-element?raw&define></script>
+<link rel=stylesheet href=/styles/main.css>
+<!--<script type=module src=https://esm.sh/jsr/@knowler/log-form-element?raw&define></script>-->
 <script type=module src=/elements/button.js?define blocking=render></script>
 
 <main>
 	<button command=show-modal commandfor=subject>Hello</button>
-	<doomed-button command="show-modal" commandfor=subject>Hello</doomed-button>
+	<doomed-button command=show-modal commandfor=subject>Hello</doomed-button>
 	<dialog id=subject>Yo</dialog>
 </main>

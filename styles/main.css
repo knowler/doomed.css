@@ -1,5 +1,5 @@
-@import "./mixins/fonts.css";
-@import "./mixins/button.css";
+@import "/styles/mixins/fonts.css";
+@import "/styles/mixins/button.css";
 
 @layer components {
 	button {

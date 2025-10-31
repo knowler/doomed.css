@@ -10,8 +10,9 @@ doomed.example {
 		+Link </elements/button.css>;rel=preload;as=script;crossorigin
 		+Link </elements/element.js>;rel=preload;as=script;crossorigin
 		+Link </elements/utils.js>;rel=preload;as=script;crossorigin
-		+Link </mixins/fonts.css>;rel=preload;as=style
-		+Link </mixins/button.css>;rel=preload;as=style
+		+Link </elements/mixins/form-associated.js>;rel=preload;as=script;crossorigin
+		+Link </styles/mixins/fonts.css>;rel=preload;as=style
+		+Link </styles/mixins/button.css>;rel=preload;as=style
 	}
 
 	file_server
