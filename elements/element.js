@@ -1,4 +1,10 @@
 export class DoomedElement extends HTMLElement {
+	#internals = super.attachInternals();
+
+	attachInternals() {
+		return this.#internals;
+	}
+
 	constructor() {
 		super();
 
