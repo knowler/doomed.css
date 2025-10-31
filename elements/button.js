@@ -1,16 +1,19 @@
+import { html } from "./utils.js";
+import { DoomedElement } from "./element.js";
 import doomedButtonStyles from "./button.css" with { type: "css" };
 
 // TODO: make it click
-class DoomedButtonElement extends HTMLElement {
+class DoomedButtonElement extends DoomedElement {
+	static formAssociated = true;
+
+	static styles = doomedButtonStyles;
+	static content = html`<slot>`;
+
 	#internals = this.attachInternals();
 
 	constructor() {
 		super();
 		this.#internals.role = "button";
-
-		this.attachShadow({ mode: "open" });
-		this.shadowRoot.innerHTML = "<slot>";
-		this.shadowRoot.adoptedStyleSheets = [doomedButtonStyles];
 	}
 
 	connectedCallback() {
