@@ -1,15 +1,21 @@
 @import "./mixins/fonts.css";
 @import "./mixins/button.css";
 
-button {
-	@apply --doomed-button-reset;
-	@apply --doomed-button-base;
+@layer components {
+	button {
+		@apply --doomed-button-reset;
+		@apply --doomed-button-base;
 
-	&:hover {
-		@apply --doomed-button-hover;
-	}
+		&:hover {
+			--doomed-button-state: hover;
+		}
 
-	&:active {
-		@apply --doomed-button-active;
+		&:active {
+			--doomed-button-state: active;
+		}
+
+		&:disabled {
+			--doomed-button-state: disabled;
+		}
 	}
 }

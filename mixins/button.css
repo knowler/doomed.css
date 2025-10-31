@@ -1,3 +1,9 @@
+@property --doomed-button-state {
+	syntax: "idle | hover | active | disabled";
+	inherits: true;
+	initial-value: idle;
+}
+
 @mixin --doomed-button-reset() {
 	&:where(button, input[type="submit"]) {
 		display: initial;
@@ -12,38 +18,36 @@
 @mixin --doomed-button-base() {
 	display: inline-block;
 	padding: 8px;
+	border-radius: 6px;
+	border-width: 2px;
 
-	cursor: pointer;
+	cursor: if(
+		style(--doomed-button-state: disabled): not-allowed;
+		else: pointer;
+	);
 
 	font-family: var(--doomed-font-sans);
 	font-weight: 500;
 	font-feature-settings: "ss06";
 	text-box: cap alphabetic;
 
-	border: 2px solid light-dark(
-		var(--TODO, CanvasText),
-		#ccc
+	border-style: solid;
+	border-color: if(
+		style(--doomed-button-state: disabled): #666;
+		else: #ccc;
 	);
-	border-radius: 6px;
-
-	color: light-dark(
-		var(--TODO, CanvasText),
-		#fff
+	color: if(
+		style(--doomed-button-state: disabled): #aaa;
+		else: #fff;
 	);
-	background-color: light-dark(
-		var(--TODO, Canvas),
-		#212121
+	background-color: if(
+		style(--doomed-button-state: idle): #212121;
+		style(--doomed-button-state: hover): #333;
+		style(--doomed-button-state: active): #181818;
+		style(--doomed-button-state: disabled): #444;
 	);
 
 	transition-duration: 200ms;
 	transition-timing-function: ease-in-out;
-	transition-property: background-color;
-}
-
-@mixin --doomed-button-hover() {
-	background-color: #333;
-}
-
-@mixin --doomed-button-active() {
-	background-color: #181818;
+	transition-property: background-color, border-color, color;
 }
