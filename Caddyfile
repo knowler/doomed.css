@@ -7,9 +7,11 @@ doomed.example {
 
 	header / {
 		+Link </elements/button.js?define>;rel=modulepreload
+		+Link </elements/tabs.js?define>;rel=modulepreload
 		+Link </elements/button.css>;rel=preload;as=script;crossorigin
 		+Link </elements/element.js>;rel=preload;as=script;crossorigin
 		+Link </elements/utils.js>;rel=preload;as=script;crossorigin
+		+Link </elements/mixins/button-like.js>;rel=preload;as=script;crossorigin
 		+Link </elements/mixins/form-associated.js>;rel=preload;as=script;crossorigin
 		+Link </styles/mixins/fonts.css>;rel=preload;as=style
 		+Link </styles/mixins/button.css>;rel=preload;as=style

@@ -5,10 +5,14 @@ export class DoomedElement extends HTMLElement {
 		return this.#internals;
 	}
 
+	static shadowRootOptions = {
+		mode: "open",
+	}
+
 	constructor() {
 		super();
 
-		this.attachShadow({ mode: "open" });
+		this.attachShadow(this.constructor.shadowRootOptions);
 
 		if (this.constructor.content)
 			this.shadowRoot.append(

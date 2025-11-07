@@ -4,12 +4,93 @@
 <meta name=color-scheme content=dark>
 <meta name=viewport content=width=device-width,initial-scale=1>
 <title>u r doomed</title>
-<link rel=stylesheet href=/styles/main.css>
 <!--<script type=module src=https://esm.sh/jsr/@knowler/log-form-element?raw&define></script>-->
-<script type=module src=/elements/button.js?define blocking=render></script>
+
+<script type=module blocking=render>
+	import "/elements/button.js?define";
+	import "/elements/tabs.js?define";
+</script>
+
+<style>@layer base, components;</style>
+
+<style>
+	@import "/styles/mixins/fonts.css";
+	@import "/styles/mixins/button.css";
+
+	:root {
+		font-family: system-ui;
+		font-feature-settings: "ss06";
+	}
+
+	@layer components {
+		@scope (button) {
+			& {
+				@apply --doomed-button-reset;
+				@apply --doomed-button-base;
+			}
+
+			&:hover {
+				--doomed-button-state: hover;
+			}
+
+			&:active {
+				--doomed-button-state: active;
+			}
+
+			&:disabled {
+				--doomed-button-state: disabled;
+			}
+		}
+
+		@scope (dialog) {
+			button:where([command="request-close"]) {
+				--doomed-button-variant: negative;
+			}
+		}
+	}
+
+</style>
 
 <main>
 	<button command=show-modal commandfor=subject>Hello</button>
 	<doomed-button command=show-modal commandfor=subject>Hello</doomed-button>
-	<dialog id=subject>Yo</dialog>
+	<dialog id=subject closedby=any>
+		<h2>Yo</h2>
+		<button command=request-close commandfor=subject>Close</button>
+	</dialog>
+
+	<doomed-tabs>
+
+		<noscript><h2></noscript>
+		<doomed-tab>The Callous Daoboys</doomed-tab>
+		<noscript></h2></noscript>
+		<doomed-tabpanel>Die on Mars</doomed-tabpanel>
+
+		<noscript><h2></noscript>
+		<doomed-tab>The Dillinger Escape Plan</doomed-tab>
+		<noscript></h2></noscript>
+		<doomed-tabpanel>Calculating Infinity</doomed-tabpanel>
+
+		<noscript><h2></noscript>
+		<doomed-tab>Exotic Animal Petting Zoo</doomed-tab>
+		<noscript></h2></noscript>
+		<doomed-tabpanel>Tree of Tongues</doomed-tabpanel>
+
+	</doomed-tabs>
+
+	<!--
+	<doomed-tabs>
+
+		<doomed-tablist>
+			<doomed-tab>The Callous Daoboys</doomed-tab>
+			<doomed-tab>The Dillinger Escape Plan</doomed-tab>
+			<doomed-tab>Exotic Animal Petting Zoo</doomed-tab>
+		</doomed-tablist>
+
+		<doomed-tabpanel>Die on Mars</doomed-tabpanel>
+		<doomed-tabpanel>Calculating Infinity</doomed-tabpanel>
+		<doomed-tabpanel>Tree of Tongues</doomed-tabpanel>
+
+	</doomed-tabs>
+	-->
 </main>

@@ -3,3 +3,9 @@ export function html(strings, ...expressions) {
 	template.innerHTML = String.raw(strings, ...expressions);
 	return template.content;
 }
+
+export function css(strings, ...expressions) {
+	const sheet = new CSSStyleSheet();
+	sheet.replaceSync(String.raw(strings, ...expressions));
+	return sheet;
+}

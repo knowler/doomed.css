@@ -1,7 +1,25 @@
 @property --doomed-button-state {
-	syntax: "idle | hover | active | disabled";
+	syntax: "<ident>"; /*"idle | hover | active | disabled";*/
 	inherits: true;
 	initial-value: idle;
+}
+
+@property --doomed-button-variant {
+	syntax: "primary | secondary | tertiary | negative";
+	inherits: true;
+	initial-value: primary;
+}
+
+@property --doomed-button-bg-color-idle {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #212121;
+} 
+
+@property --test {
+	syntax: "<custom-ident>";
+	inherits: true;
+	initial-value: --asdf;
 }
 
 @mixin --doomed-button-reset() {
@@ -9,7 +27,7 @@
 		display: initial;
 		background: initial;
 		border: initial;
-		font-size: 1rem;
+		font-size: inherit;
 		text-align: initial;
 		padding: 0;
 	}
@@ -31,6 +49,13 @@
 	font-feature-settings: "ss06";
 	text-box: cap alphabetic;
 
+	background-color: if(
+		style(--doomed-button-state: idle): #212121;
+		style(--doomed-button-state: hover): #333;
+		style(--doomed-button-state: active): #181818;
+		style(--doomed-button-state: disabled): #444;
+	);
+
 	border-style: solid;
 	border-color: if(
 		style(--doomed-button-state: disabled): #666;
@@ -39,12 +64,6 @@
 	color: if(
 		style(--doomed-button-state: disabled): #aaa;
 		else: #fff;
-	);
-	background-color: if(
-		style(--doomed-button-state: idle): #212121;
-		style(--doomed-button-state: hover): #333;
-		style(--doomed-button-state: active): #181818;
-		style(--doomed-button-state: disabled): #444;
 	);
 
 	transition-duration: 200ms;
